@@ -25,6 +25,10 @@ export default function Home() {
           top: 0,
           zIndex: 1,
           width: '100%',
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"
+
         }}
       >
         <Menu
@@ -34,33 +38,58 @@ export default function Home() {
             key: o.key,
             label: o.title,
           }))}
+        // style={{border:"1px solid red"}}
         />
       </Header>
-      <Content>
-        <div className="content">
-          {/* search autocomplete databases */}
-          {/* button to add */}
-          <br />
-          <br />
-          <br />
-          {/* grid of cards */}
-          {/* <Image
+
+      <div style={{
+        paddingTop: "64px",
+        display: 'grid',
+        gridTemplateColumns: '1fr 4fr 1fr',
+        gridColumnGap: '20px',
+        gridRowGap: '20px',
+        // height: 'calc(100vh-64px)'
+      }}>
+        <div style={{ border: "1px solid red" }}></div>
+        {/* search autocomplete databases */}
+        {/* add import spotify/imdb/etc... library? */}
+        {/* button to add */}
+        {/* grid of cards */}
+        {/* <Image
             // loader={myLoader}
             src="https://m.media-amazon.com/images/I/71QcRDosnsL._AC_SL1500_.jpg"
             alt="movie title"
             width={200}
             height={300}
           /> */}
-          <Card
-            hoverable
-            style={{ width: 200 }}
-            cover={<img alt="example" src="https://m.media-amazon.com/images/I/71QcRDosnsL._AC_SL1500_.jpg" />}
-          >
-           <Meta title="Spiderman" />
-          </Card>
+        <div style={{
+          // display: 'grid',
+          // gridTemplateColumns: 'repeat(5, 1fr)',
+          // // gridColumnGap: '20px',
+          // gridRowGap: '20px',
+          // height: '100%',
+          display: "flex",
+          justifyContent:"center",
+          flexWrap: "wrap",
+          gap:"20px",
+          border: "1px solid blue"
+        }}>
+          {new Array(20).fill(null).map((_, index) => {
+            const key = index + 1;
+            return (
+              <Card
+                hoverable
+                style={{ width: 200 }}
+                cover={<img alt="example" src="https://m.media-amazon.com/images/I/71QcRDosnsL._AC_SL1500_.jpg" />}
+              >
+                <Meta title={index} />
+              </Card>
+            )
+          })}
         </div>
-      </Content>
-      <Footer style={{ textAlign: 'center' }}>Created By Josh Renema ©2023</Footer>
+        <div style={{ border: "1px solid red" }}></div>
+      </div>
+      {/* <Footer style={{ textAlign: 'center' }}>Created By Josh Renema ©2023</Footer> */}
 
     </Layout>
   )
