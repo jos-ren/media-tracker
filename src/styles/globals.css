@@ -12,7 +12,3 @@ body {
   color: black;
   overflow-x: hidden;
 }
-.content{
-  min-height:calc(100vh - 67px);
-  padding:64px 200px 0px 200px
-}
