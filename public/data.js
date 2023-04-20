@@ -1,3 +1,10 @@
+import Image from "next/image";
+import { Rate } from 'antd';
+
+const ImageLoader = ({ src, width, quality }) => {
+	return `${src}?w=${width}&q=${quality || 75}`
+}
+
 export const tabs = [
 	{
 		id: 0,
@@ -16,19 +23,6 @@ export const tabs = [
 		title: "Music",
 	},
 ]
-
-// title
-// picture
-// rating
-// comments
-// watch date
-// movie date
-
-import Image from "next/image";
-
-const ImageLoader = ({ src, width, quality }) => {
-	return `${src}?w=${width}&q=${quality || 75}`
-}
 
 export const movieColumns = [
 	{
@@ -53,6 +47,7 @@ export const movieColumns = [
 		title: 'Rating',
 		dataIndex: 'rating',
 		sorter: (a, b) => a.rating - b.rating,
+		render: (rating) => <Rate disabled defaultValue={rating}/>
 	},
 	{
 		title: 'Watch Date',
@@ -61,7 +56,7 @@ export const movieColumns = [
 		sorter: (a, b) => new Date(b.watch_date) - new Date(a.watch_date),
 		render: (watch_date) => {
 			const date = new Date(watch_date)
-			return <>{date.toLocaleDateString('en', {dateStyle: "medium",})}</>
+			return <>{date.toLocaleDateString('en-US', {dateStyle: "medium",})}</>
 		},
 	},
 	{
@@ -71,7 +66,7 @@ export const movieColumns = [
 		sorter: (a, b) => new Date(b.release_date) - new Date(a.release_date),
 		render: (release_date) => {
 			const date = new Date(release_date)
-			return <>{date.toLocaleDateString('en', {dateStyle: "medium",})}</>
+			return <>{date.toLocaleDateString('en-US', {dateStyle: "medium",})}</>
 		},
 	},
 	{
