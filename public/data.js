@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { Rate } from 'antd';
 
-const ImageLoader = ({ src, width, quality }) => {
-	return `${src}?w=${width}&q=${quality || 75}`
-}
+// const ImageLoader = ({ src, width, quality }) => {
+// 	return `${src}?w=${width}&q=${quality || 75}`
+// }
 
 export const tabs = [
 	{
@@ -24,57 +24,58 @@ export const tabs = [
 	},
 ]
 
-export const movieColumns = [
-	{
-		title: 'Poster',
-		dataIndex: 'poster_src',
-		key: 'poster_src',
-		render: (poster_src) => <Image
-			loader={ImageLoader}
-			src={poster_src}
-			// placeholder="blur"
-			width={50}
-			height={75}
-			style={{ objectFit: "cover" }}
-		/>,
-	},
-	{
-		title: 'Title',
-		dataIndex: 'title',
-		key: 'title',
-	},
-	{
-		title: 'Rating',
-		dataIndex: 'rating',
-		sorter: (a, b) => a.rating - b.rating,
-		render: (rating) => <Rate disabled defaultValue={rating}/>
-	},
-	{
-		title: 'Watch Date',
-		dataIndex: 'watch_date',
-		key: 'watch_date',
-		sorter: (a, b) => new Date(b.watch_date) - new Date(a.watch_date),
-		render: (watch_date) => {
-			const date = new Date(watch_date)
-			return <>{date.toLocaleDateString('en-US', {dateStyle: "medium",})}</>
-		},
-	},
-	{
-		title: 'Release Date',
-		dataIndex: 'release_date',
-		key: 'release_date',
-		sorter: (a, b) => new Date(b.release_date) - new Date(a.release_date),
-		render: (release_date) => {
-			const date = new Date(release_date)
-			return <>{date.toLocaleDateString('en-US', {dateStyle: "medium",})}</>
-		},
-	},
-	{
-		title: 'Thoughts',
-		dataIndex: 'thoughts',
-		key: 'thoughts',
-	},
-];
+// export const movieColumns = [
+// 	{
+// 		title: 'Poster',
+// 		dataIndex: 'poster_src',
+// 		key: 'poster_src',
+// 		render: (poster_src) => <Image
+// 			loader={ImageLoader}
+// 			src={poster_src}
+// 			// placeholder="blur"
+// 			width={50}
+// 			height={75}
+// 			style={{ objectFit: "cover" }}
+// 		/>,
+// 	},
+// 	{
+// 		title: 'Title',
+// 		dataIndex: 'title',
+// 		key: 'title',
+// 		...getColumnSearchProps('title'),
+// 	},
+// 	{
+// 		title: 'Rating',
+// 		dataIndex: 'rating',
+// 		sorter: (a, b) => a.rating - b.rating,
+// 		render: (rating) => <Rate disabled defaultValue={rating}/>
+// 	},
+// 	{
+// 		title: 'Watch Date',
+// 		dataIndex: 'watch_date',
+// 		key: 'watch_date',
+// 		sorter: (a, b) => new Date(b.watch_date) - new Date(a.watch_date),
+// 		render: (watch_date) => {
+// 			const date = new Date(watch_date)
+// 			return <>{date.toLocaleDateString('en-US', {dateStyle: "medium",})}</>
+// 		},
+// 	},
+// 	{
+// 		title: 'Release Date',
+// 		dataIndex: 'release_date',
+// 		key: 'release_date',
+// 		sorter: (a, b) => new Date(b.release_date) - new Date(a.release_date),
+// 		render: (release_date) => {
+// 			const date = new Date(release_date)
+// 			return <>{date.toLocaleDateString('en-US', {dateStyle: "medium",})}</>
+// 		},
+// 	},
+// 	{
+// 		title: 'Thoughts',
+// 		dataIndex: 'thoughts',
+// 		key: 'thoughts',
+// 	},
+// ];
 
 export const movieData = [
 	{
@@ -104,4 +105,76 @@ export const movieData = [
 		watch_date: "2000-05-12",
 		release_date: "2001-12-10",
 	},
+	// {
+	// 	key: '4',
+	// 	title: 'Lord of the Rings',
+	// 	poster_src: "https://m.media-amazon.com/images/I/81EBp0vOZZL._AC_SY741_.jpg",
+	// 	rating: 3,
+	// 	thoughts: "An excellent movie with an air of mystique",
+	// 	watch_date: "2000-05-12",
+	// 	release_date: "2001-12-10",
+	// },
+	// {
+	// 	key: '5',
+	// 	title: 'Lord of the Rings',
+	// 	poster_src: "https://m.media-amazon.com/images/I/81EBp0vOZZL._AC_SY741_.jpg",
+	// 	rating: 3,
+	// 	thoughts: "An excellent movie with an air of mystique",
+	// 	watch_date: "2000-05-12",
+	// 	release_date: "2001-12-10",
+	// },
+	// {
+	// 	key: '6',
+	// 	title: 'Lord of the Rings',
+	// 	poster_src: "https://m.media-amazon.com/images/I/81EBp0vOZZL._AC_SY741_.jpg",
+	// 	rating: 3,
+	// 	thoughts: "An excellent movie with an air of mystique",
+	// 	watch_date: "2000-05-12",
+	// 	release_date: "2001-12-10",
+	// },
+	// {
+	// 	key: '7',
+	// 	title: 'Lord of the Rings',
+	// 	poster_src: "https://m.media-amazon.com/images/I/81EBp0vOZZL._AC_SY741_.jpg",
+	// 	rating: 3,
+	// 	thoughts: "An excellent movie with an air of mystique",
+	// 	watch_date: "2000-05-12",
+	// 	release_date: "2001-12-10",
+	// },
+	// {
+	// 	key: '8',
+	// 	title: 'Lord of the Rings',
+	// 	poster_src: "https://m.media-amazon.com/images/I/81EBp0vOZZL._AC_SY741_.jpg",
+	// 	rating: 3,
+	// 	thoughts: "An excellent movie with an air of mystique",
+	// 	watch_date: "2000-05-12",
+	// 	release_date: "2001-12-10",
+	// },
+	// {
+	// 	key: '9',
+	// 	title: 'Lord of the Rings',
+	// 	poster_src: "https://m.media-amazon.com/images/I/81EBp0vOZZL._AC_SY741_.jpg",
+	// 	rating: 3,
+	// 	thoughts: "An excellent movie with an air of mystique",
+	// 	watch_date: "2000-05-12",
+	// 	release_date: "2001-12-10",
+	// },
+	// {
+	// 	key: '10',
+	// 	title: 'Lord of the Rings',
+	// 	poster_src: "https://m.media-amazon.com/images/I/81EBp0vOZZL._AC_SY741_.jpg",
+	// 	rating: 3,
+	// 	thoughts: "An excellent movie with an air of mystique",
+	// 	watch_date: "2000-05-12",
+	// 	release_date: "2001-12-10",
+	// },
+	// {
+	// 	key: '11',
+	// 	title: 'Lord of the Rings',
+	// 	poster_src: "https://m.media-amazon.com/images/I/81EBp0vOZZL._AC_SY741_.jpg",
+	// 	rating: 3,
+	// 	thoughts: "An excellent movie with an air of mystique",
+	// 	watch_date: "2000-05-12",
+	// 	release_date: "2001-12-10",
+	// },
 ];
